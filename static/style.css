@@ -14,7 +14,7 @@ body {
   font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  max-width: 760px;
+  max-width: 850px;
   margin: 0 auto;
   padding: 40px 20px;
   line-height: 1.6;
@@ -113,6 +113,33 @@ button:active {
   box-shadow: none;
 }
 
+.reset {
+  padding: 11px 24px;
+  font-size: 1em;
+  font-weight: 600;
+  color: var(--green);
+  background: white;
+  border: 1px solid var(--green);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.reset:hover {
+  background: var(--mint);
+  transform: translateY(-2px);
+}
+
+.reset:active {
+  transform: translateY(0);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
 /* ---------- Error message ---------- */
 .error {
   background: var(--mint);
@@ -195,6 +222,10 @@ footer {
 
 footer p {
   margin: 0 0 5px 0;
+}
+
+footer p:nth-of-type(2) {
+  margin-top: 20px;
 }
 
 footer a {
