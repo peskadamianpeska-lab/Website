@@ -60,11 +60,27 @@
         <p>Humidity: {{ plant.humidity }}</p>
         <p>Shape: {{ plant.habit }}</p>
         <p>Pets: {{ plant.pets }}</p>
+        <a class="more" href="https://en.wikipedia.org/w/index.php?search={{ plant.latin|urlencode }}" target="_blank" rel="noopener noreferrer">Learn more →</a>
       </div>
     {% else %}
       <p class="count">No plant matches your home Try changing an answer!</p>
     {% endfor %}
   {% endif %}
+
+  <div class="stats">
+  <div class="stat">
+    <span class="stat-number">{{ stats.total }}</span>
+    <span class="stat-label">plants</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number">{{ stats.pet_safe }}</span>
+    <span class="stat-label">pet-safe</span>
+  </div>
+  <div class="stat">
+    <span class="stat-number">{{ stats.low_light }}</span>
+    <span class="stat-label">low-light friendly</span>
+  </div>
+</div>
 
     <h3>Sunlight Exposure</h3>
     <p>Sunlight exposure corresponds to how much sunlight your room is getting</p>

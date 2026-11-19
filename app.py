@@ -35,6 +35,11 @@ def filter_plants(plants):
 def index():
     plants = load_plants()
     filtered = filter_plants(plants)
+    stats = {
+    "total": len(plants),
+    "pet_safe": sum(1 for p in plants if p["pets"].startswith("Non-toxic")),
+    "low_light": sum(1 for p in plants if "low" in p["light"].lower()),
+}
     return render_template("index.html",
                            plants=filtered,
                            lights=sorted({plant["light"] for plant in plants}),
@@ -43,7 +48,7 @@ def index():
                            selected_humidity=request.args.get("humidity", ""),
                            selected_pets=request.args.get("pets", ""),
                            submitted=bool(request.args),
-                           total=len(plants),
+                           total=len(plants), stats=stats,
                            error="")
 
 if __name__ == "__main__":
